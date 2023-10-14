@@ -49,6 +49,12 @@ const CreateCar = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+    if (formData.cpu === 'Intel Core i9' && formData.gpu === 'AMD Radeon RX 6900 XT') {
+        alert('The selected CPU and GPU are not compatible.');
+        return;
+    }
+
         const newTotalPrice = ['cpu', 'gpu', 'ram', 'storage'].reduce((sum, field) => {
             return sum + getPrice(formData[field]);
         }, 0);
@@ -60,7 +66,7 @@ const CreateCar = () => {
             console.error('Error creating item:', error);
         }
     };
-    
+
     const filterOptions = (type) => {
         return componentOptions.filter(option => option.component_type === type);
     };

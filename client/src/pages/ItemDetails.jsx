@@ -23,9 +23,8 @@ const CarDetails = () => {
 
     const handleDelete = async () => {  // Updated this function
         try {
+            window.location.href = '/customitems';
             await deleteItem(id);
-            console.log('Item deleted successfully');
-            window.location.href = '/customitems'; 
         } catch (error) {
             console.error('Error deleting item:', error);
         }
